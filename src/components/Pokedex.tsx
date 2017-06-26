@@ -28,6 +28,8 @@ export class Pokedex extends React.Component<PokedexProps, PokedexState> {
         }
         //this.refreshData = this.refreshData.bind(this);
         this.getData = this.getData.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount() {
@@ -52,13 +54,25 @@ export class Pokedex extends React.Component<PokedexProps, PokedexState> {
         );
     }
 
+    handleChange(e) {
+        this.setState({pokeId: e.target.value});
+    }
+
+    handleSubmit(e) {
+        this.getData();
+        e.preventDefault();
+    }
+
     render(): JSX.Element {
         return (
             <div className="Pokedex">
                 <h1>{this.props.title}</h1>
-                <Search />
+                <form className="Search">
+                    <input type="number" min="1" onChange={this.handleChange} value={this.state.pokeId} />
+                    <button type="submit" onClick={this.handleSubmit}>Update</button>
+                </form>
                 <Pokemon 
-                    id={this.state.pokeId || undefined}
+                    id={this.state.pokeId || null}
                     name={this.state.pokeName || 'Loading'}
                     typeA={this.state.pokeTypeA || ''}
                     typeB={this.state.pokeTypeB || ''}

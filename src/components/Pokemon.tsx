@@ -26,9 +26,9 @@ export class Pokemon extends React.Component<PokemonProps, PokemonState> {
         return (
             <div className={name}>
                 {src && <img className="PokemonSprite" src={src} width="150px" />}
-                <h2 className="PokemonName"><span className="PokemonId">{id}</span> {name}</h2>
-                <h3 className="PokemonTypeA">{typeA}-type</h3>
-                {this.props.typeB && <h3 className="PokemonTypeB">{typeB}-type</h3>}
+                <h2 className="PokemonName">{name}</h2>
+                <h3 className="PokemonTypeA">{typeA}</h3>
+                {this.props.typeB && <h3 className="PokemonTypeB">{typeB}</h3>}
             </div>
         );
     }
