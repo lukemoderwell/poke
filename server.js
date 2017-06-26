@@ -14,11 +14,11 @@ app.get('*', (_, response) => {
     response.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
 });
 
-http.listen(8080, () => {
-    console.log('listening on *:8080');
+http.listen(8888, () => {
+    console.log('listening on *:8888');
     notifier.notify({
         'title': 'Dev Server Started',
-        'message': 'listening on *:8080'
+        'message': 'listening on *:8888'
     });
 });
 
